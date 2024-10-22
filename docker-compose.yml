@@ -1,0 +1,32 @@
+services:
+  api:
+    container_name: stagecase
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - 7021:8080
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on: ["stagecase-sql"]
+    networks:
+      stagecase-networks:
+  
+  stagecase-sql:
+    image: mcr.microsoft.com/azure-sql-edge
+    environment:
+      - "ACCEPT_EULA=1"
+      - "MSSQL_SA_PASSWORD=w@1055EfQk"
+    volumes:
+      - "stagecase-sqlserver:/var/opt/mssql"
+    networks:
+      stagecase-networks:
+        aliases:
+          - "sql"
+
+volumes:
+  stagecase-sqlserver:
+
+networks:
+  stagecase-networks:
+    driver: bridge

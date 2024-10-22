@@ -1,0 +1,6 @@
+@StageCase.API_HostAddress = http://localhost:5068
+
+GET {{StageCase.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
