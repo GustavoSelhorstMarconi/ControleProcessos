@@ -23,7 +23,7 @@ namespace StageCase.API.Controllers
         ///<response code="400">Wrong informations</response>
         ///<response code="500">Internal error on server</response>
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(ResponseDto<ProcessDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Produces("application/json")]
@@ -63,7 +63,7 @@ namespace StageCase.API.Controllers
         ///<responses code="400">Wrong informations</responses>
         ///<responses code="500">Internal error on server</responses>
         [HttpPut]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseDto<ProcessDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Produces("application/json")]
